@@ -1,0 +1,11 @@
+========================================
+    C++ AUTHENTICATION SERVER
+========================================
+✓ Server running on http://localhost:8080
+✓ Data stored in: users.txt
+✓ Ready to accept connections...
+✓ Press Ctrl+C to stop
+========================================
+
+[INFO] New user registered: shorya
+[INFO] User logged in: shorya
