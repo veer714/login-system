@@ -1,245 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication System</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 450px;
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        .status-online {
-            background-color: #4CAF50;
-            box-shadow: 0 0 10px #4CAF50;
-        }
-
-        .status-offline {
-            background-color: #f44336;
-            box-shadow: 0 0 10px #f44336;
-        }
-
-        .form-container {
-            padding: 40px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-bottom: 10px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-
-        .btn-logout {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .switch-form {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .switch-form a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .switch-form a:hover {
-            text-decoration: underline;
-        }
-
-        .message {
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            display: none;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .dashboard {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .dashboard h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .dashboard p {
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .user-list {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .user-list h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .user-item {
-            padding: 10px;
-            background: white;
-            margin-bottom: 8px;
-            border-radius: 5px;
-            border-left: 3px solid #667eea;
-        }
-
-        .server-info {
-            background: #e3f2fd;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #1565c0;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="oopsproject.css">
+    
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔐 Auth System</h1>
+            <h1>Authentication System</h1>
             <p>
                 <span class="status-indicator" id="statusIndicator"></span>
                 <span id="statusText">Checking server...</span>
@@ -264,7 +35,7 @@
                 Don't have an account? <a onclick="showRegister()">Register here</a>
             </div>
             <div class="server-info">
-                💾 Data stored on C++ server (users.txt)
+                 Data stored on C++ server (users.txt)
             </div>
         </div>
 
@@ -294,11 +65,11 @@
         <!-- Dashboard -->
         <div id="dashboard" class="form-container hidden">
             <div class="dashboard">
-                <h2>Welcome, <span id="dashboardUsername"></span>! 👋</h2>
+                <h2>Hey! <span id="dashboardUsername"></span> Welcome</h2>
                 <p>You have successfully logged in.</p>
                 
                 <div class="user-list" id="userListContainer" style="display:none;">
-                    <h3>📋 All Registered Users</h3>
+                    <h3>All Registered Users</h3>
                     <div id="userList"></div>
                 </div>
                 
@@ -306,194 +77,11 @@
                 <button class="btn btn-logout" onclick="handleLogout()">Logout</button>
                 
                 <div class="server-info">
-                    🌐 Connected to C++ Server on localhost:8080
+                     Connected to C++ Server on localhost:8080
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        const API_URL = 'http://localhost:8080';
-        let serverOnline = false;
-
-        // Check server status
-        async function checkServer() {
-            try {
-                const response = await fetch(`${API_URL}/users`, {
-                    method: 'GET',
-                    signal: AbortSignal.timeout(3000)
-                });
-                serverOnline = response.ok;
-            } catch(error) {
-                serverOnline = false;
-            }
-            
-            updateServerStatus();
-        }
-
-        function updateServerStatus() {
-            const indicator = document.getElementById('statusIndicator');
-            const text = document.getElementById('statusText');
-            
-            if(serverOnline) {
-                indicator.className = 'status-indicator status-online';
-                text.textContent = 'Server Online';
-            } else {
-                indicator.className = 'status-indicator status-offline';
-                text.textContent = 'Server Offline';
-            }
-        }
-
-        function showMessage(elementId, message, isSuccess) {
-            const msgElement = document.getElementById(elementId);
-            msgElement.textContent = message;
-            msgElement.className = 'message ' + (isSuccess ? 'success' : 'error');
-            msgElement.style.display = 'block';
-            setTimeout(() => {
-                msgElement.style.display = 'none';
-            }, 5000);
-        }
-
-        function showLogin() {
-            document.getElementById('loginForm').classList.remove('hidden');
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('dashboard').classList.add('hidden');
-        }
-
-        function showRegister() {
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('registerForm').classList.remove('hidden');
-            document.getElementById('dashboard').classList.add('hidden');
-        }
-
-        function showDashboard(username) {
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
-            document.getElementById('dashboardUsername').textContent = username;
-            document.getElementById('userListContainer').style.display = 'none';
-        }
-
-        async function handleRegister(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('registerUsername').value.trim();
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const btn = document.getElementById('registerBtn');
-            
-            if(password !== confirmPassword) {
-                showMessage('registerMessage', 'Passwords do not match!', false);
-                return;
-            }
-            
-            btn.disabled = true;
-            btn.textContent = 'Registering...';
-            
-            try {
-                const response = await fetch(`${API_URL}/register`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-                });
-                
-                const data = await response.text();
-                const [status, message] = data.split('|');
-                
-                if(status === 'SUCCESS') {
-                    showMessage('registerMessage', message, true);
-                    document.getElementById('registerUsername').value = '';
-                    document.getElementById('registerPassword').value = '';
-                    document.getElementById('confirmPassword').value = '';
-                    setTimeout(() => showLogin(), 2000);
-                } else {
-                    showMessage('registerMessage', message, false);
-                }
-            } catch(error) {
-                showMessage('registerMessage', 'Connection error! Make sure C++ server is running on port 8080.', false);
-                serverOnline = false;
-                updateServerStatus();
-            }
-            
-            btn.disabled = false;
-            btn.textContent = 'Register';
-        }
-
-        async function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('loginUsername').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const btn = document.getElementById('loginBtn');
-            
-            btn.disabled = true;
-            btn.textContent = 'Logging in...';
-            
-            try {
-                const response = await fetch(`${API_URL}/login`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-                });
-                
-                const data = await response.text();
-                const [status, message] = data.split('|');
-                
-                if(status === 'SUCCESS') {
-                    showDashboard(message);
-                } else {
-                    showMessage('loginMessage', message, false);
-                }
-            } catch(error) {
-                showMessage('loginMessage', 'Connection error! Make sure C++ server is running on port 8080.', false);
-                serverOnline = false;
-                updateServerStatus();
-            }
-            
-            btn.disabled = false;
-            btn.textContent = 'Login';
-        }
-
-        async function loadAllUsers() {
-            try {
-                const response = await fetch(`${API_URL}/users`);
-                const data = await response.text();
-                const [status, users] = data.split('|');
-                
-                if(status === 'SUCCESS') {
-                    const userArray = users.split(',');
-                    const userListDiv = document.getElementById('userList');
-                    userListDiv.innerHTML = '';
-                    
-                    userArray.forEach((user, index) => {
-                        const userItem = document.createElement('div');
-                        userItem.className = 'user-item';
-                        userItem.textContent = `${index + 1}. ${user}`;
-                        userListDiv.appendChild(userItem);
-                    });
-                    
-                    document.getElementById('userListContainer').style.display = 'block';
-                } else {
-                    alert('No users found!');
-                }
-            } catch(error) {
-                alert('Error loading users!');
-            }
-        }
-
-        function handleLogout() {
-            showLogin();
-            document.getElementById('loginUsername').value = '';
-            document.getElementById('loginPassword').value = '';
-        }
-
-        // Check server status on load
-        checkServer();
-        setInterval(checkServer, 10000); // Check every 10 seconds
-    </script>
+    <script src="oopsproject.js"></script>
 </body>
 </html>
